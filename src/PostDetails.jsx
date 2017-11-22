@@ -4,7 +4,7 @@ import db from "./firestore";
 
 function Post({post}) {
     return (
-        <div>
+        <div className="white-bg">
             <h4>Пользователь {post.name} дал игре {post.game} рейтинг {post.rating}</h4>
             <blockquote>{post.text}</blockquote>
         </div>

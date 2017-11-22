@@ -18,7 +18,7 @@ function Comment({comment, changeRating}) {
                 <p>Комментарий: {comment.text}</p>
             </div>
             <div className="pure-u-1-3">
-                <p>Рейтинг комментария: {comment.rating}</p>
+                <p>Рейтинг {comment.rating}</p>
                 <button onClick={_increaseRating}>+</button>
                 <button onClick={_decreaseRating}>-</button>
             </div>
@@ -27,22 +27,24 @@ function Comment({comment, changeRating}) {
 }
 
 
-function CommentsGrid(props) {
-    return (
-        <div>
-            <h3>Комментарии</h3>
-            {props.comments
-                .map((comment) => {
-                    return (
-                        <Comment key={comment.id}
-                                 comment={comment}
-                                 changeRating={props.changeRating}
-                        />
-                    );
-                })
-            }
-        </div>
-    );
+class CommentsGrid extends React.PureComponent {
+
+    render() {
+        return (
+            <div className="white-bg">
+                {this.props.comments
+                    .map((comment) => {
+                        return (
+                            <Comment key={comment.id}
+                                     comment={comment}
+                                     changeRating={this.props.changeRating}
+                            />
+                        );
+                    })
+                }
+            </div>
+        );
+    }
 }
 
 class Comments extends Component {

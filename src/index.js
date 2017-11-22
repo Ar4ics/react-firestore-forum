@@ -15,7 +15,7 @@ import {
 const Home = () => (
     <div className="pure-g block text-center">
         <div className="pure-u-1">
-            <h1>Добро пожаловать на форум по компьютерным играм!</h1>
+            <h2 className='white-text'>Добро пожаловать на форум по компьютерным играм!</h2>
         </div>
     </div>
 );
@@ -28,7 +28,7 @@ const Header = () => (
                 <NavLink className="pure-menu-link" to='/'>Главная страница</NavLink>
             </li>
             <li className="pure-menu-item">
-                <NavLink className="pure-menu-link" to='/posts'>Игры</NavLink>
+                <NavLink className="pure-menu-link" to='/posts'>Отзывы игр</NavLink>
             </li>
         </ul>
     </div>

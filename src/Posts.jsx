@@ -6,11 +6,15 @@ import {
 import PostForm from "./PostForm";
 
 
-function PostsGrid(props) {
-    return (
-        <div>
-            <h3>Отзывы пользователей</h3>
-            <table className="pure-table pure-table-horizontal">
+class PostsGrid extends Component {
+
+    shouldComponentUpdate(nextProps, nextState) {
+        return this.props.posts.length !== nextProps.posts.length;
+    }
+
+    render() {
+        return (
+            <table className="pure-table pure-table-horizontal white-bg">
                 <thead>
                 <tr className="text-center">
                     <th>#</th>
@@ -21,7 +25,7 @@ function PostsGrid(props) {
                 </tr>
                 </thead>
                 <tbody>
-                {props.posts
+                {this.props.posts
                     .map((post, index) => {
                         return (
                             <tr className="text-center" key={post.id}>
@@ -40,8 +44,8 @@ function PostsGrid(props) {
                 }
                 </tbody>
             </table>
-        </div>
-    );
+        );
+    }
 }
 
 class Posts extends Component {
@@ -63,6 +67,7 @@ class Posts extends Component {
             }
         })
     }
+
 
     componentDidMount() {
         this.unsubscribe = db.collection("posts").orderBy('rating', 'desc').onSnapshot(querySnapshot => {

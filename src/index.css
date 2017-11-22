@@ -11,6 +11,31 @@
   justify-content: center;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(fifa.jpg);
+  background-size: 100%;
+}
+
+.white-bg {
+  background-color: white;
+}
+
+h1, h2, h3 {
+  color: white;
+  background-color: #666666;
+}
+
+label {
+  color: yellow;
+}
+
+#image
+{
+  width: 100%;
+}
+
 .container {
   padding-left: 30px;
   padding-right: 30px;
